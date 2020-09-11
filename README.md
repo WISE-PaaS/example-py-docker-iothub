@@ -1,30 +1,29 @@
 # Example-Python-Docker-Iothub
 
-Table of Contents
-=================
+# Table of Contents
 
-   * [Introduction](#introduction)
-   * [Deploy the app to space](#deploy-the-app-to-space)
-   * [Environment Prepare](#environment-prepare)
-      * [environment config](#environment-config)
-      * [git clone](#git-clone)
-   * [Application Introduce](#application-introduce)
-      * [index.py](#indexpy)
-      * [publisher.py](#publisherpy)
-      * [SSO (Single Sign On)](#sso-single-sign-on)
-   * [Kubernetes Config](#kubernetes-config)
-      * [deployment.yaml](#deploymentyaml)
-      * [ingress.yaml](#ingressyaml)
-      * [service.yaml](#serviceyaml)
-   * [Docker](#docker)
-      * [dockerfile](#dockerfile)
-   * [Deployment Application Steps](#deployment-application-steps)
-      * [1. build Docker image](#1-build-docker-image)
-      * [2. push it to Docker Hub](#2-push-it-to-docker-hub)
-      * [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
-      * [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success)
-      * [5. Run publisher.py](#5-run-publisherpy)
-            
+- [Introduction](#introduction)
+- [Deploy the app to space](#deploy-the-app-to-space)
+- [Environment Prepare](#environment-prepare)
+    - [environment config](#environment-config)
+    - [git clone](#git-clone)
+- [Application Introduce](#application-introduce)
+    - [index.py](#indexpy)
+    - [publisher.py](#publisherpy)
+    - [SSO (Single Sign On)](#sso-single-sign-on)
+- [Kubernetes Config](#kubernetes-config)
+    - [deployment.yaml](#deploymentyaml)
+    - [ingress.yaml](#ingressyaml)
+    - [service.yaml](#serviceyaml)
+- [Docker](#docker)
+    - [dockerfile](#dockerfile)
+- [Deployment Application Steps](#deployment-application-steps)
+    - [1. build Docker image](#1-build-docker-image)
+    - [2. push it to Docker Hub](#2-push-it-to-docker-hub)
+    - [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
+    - [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success)
+    - [5. Run publisher.py](#5-run-publisherpy)
+
 ## Introduction
 
 This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and we use the Docker package this file。
