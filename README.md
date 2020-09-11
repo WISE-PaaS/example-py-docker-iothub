@@ -3,9 +3,9 @@
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Deploy the app to space](#deploy-the-app-to-space)
+- [Deploy the app to HZ WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
 - [Environment Prepare](#environment-prepare)
-    - [environment config](#environment-config)
+    - [env config](#env-config)
     - [git clone](#git-clone)
 - [Application Introduce](#application-introduce)
     - [index.py](#indexpy)
@@ -38,7 +38,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## Environment Prepare
 
-#### environment config
+#### env config
 
 [Python3](https://www.python.org/downloads/) （ need include pip3 ）
 
