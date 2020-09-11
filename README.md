@@ -30,8 +30,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 ## Deploy the app to HZ.WISE-PaaS
 [HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
 
-- Data Center：HZ
-  - Cluster：eks006
+- Cluster：eks006
     - Workspace：advtraining
         - Namespace：level1
 
