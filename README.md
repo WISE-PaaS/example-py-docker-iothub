@@ -43,8 +43,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
     #python-backend
     pip3 install Flask
 
-[Docker](https://www.docker.com/get-started)
-(Use to packaged our application)
+[Docker](https://www.docker.com/get-started) ( Use to packaged our application )
 
 git clone
 
