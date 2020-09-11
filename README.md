@@ -3,9 +3,9 @@
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-hzwise-paas)
 - [Environment](#environment)
 - [Downloading the Project](#downloading-the-project)
+- [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-hzwise-paas)
 - [Application Introduce](#application-introduce)
     - [1. index.py](#1-indexpy)
     - [2. publisher.py](#2-publisherpy)
@@ -27,13 +27,6 @@
 
 This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and we use the Docker package this file。
 
-## Deploy the app to HZ.WISE-PaaS
-[HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
-
-- Cluster：eks006
-    - Workspace：advtraining
-        - Namespace：level1
-
 ## Environment
 
 [Python3](https://www.python.org/downloads/) （ need include pip3 ）
@@ -48,6 +41,13 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 ## Downloading the Project
 
     git clone https://github.com/WISE-PaaS/example-py-docker-iothub.git
+
+## Deploy the app to HZ.WISE-PaaS
+[HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
+
+- Cluster：eks006
+    - Workspace：advtraining
+        - Namespace：level1
 
 ## Application Introduce
 
