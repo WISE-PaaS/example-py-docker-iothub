@@ -5,8 +5,6 @@
 - [Introduction](#introduction)
 - [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
 - [Environment Prepare](#environment-prepare)
-    - [env config](#env-config)
-    - [git clone](#git-clone)
 - [Application Introduce](#application-introduce)
     - [index.py](#indexpy)
     - [publisher.py](#publisherpy)
@@ -38,8 +36,6 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## Environment Prepare
 
-#### env config
-
 [Python3](https://www.python.org/downloads/) （ need include pip3 ）
 
     #mqtt
@@ -49,8 +45,6 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 [Docker](https://www.docker.com/get-started)
 Use to packaged our application
-
-#### git clone
 
     git clone https://github.com/WISE-PaaS/example-py-docker-iothub.git
 
