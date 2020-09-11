@@ -9,7 +9,6 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 ## Deploy the app to space
 
 - Data Center：HZ
-
   - Workspace：advtraining
     - Namespace：level1
 
@@ -142,7 +141,7 @@ If you don't want it，you can ignore it。
 
 #### deployment.yaml
 
-- Each user needs to adjust the variables for certification, as follows：
+Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：py-docker-iothub-**{user_name}**
   2. student：**{user_name}**
   3. image：**{docker_account}** / py-docker-iothub：latest
@@ -154,7 +153,7 @@ If you don't want it，you can ignore it。
 
 #### ingress.yaml
 
-- Each user needs to adjust the variables for certification, as follows：
+Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：py-docker-iothub-**{user_name}**
   2. host：py-docker-iothub-**{user_name}** . **{namespace_name}** . **{cluster_name}**.en.internal
   3. serviceName：need to be same name in cluster-ip.yaml **metadata name**
@@ -163,7 +162,7 @@ If you don't want it，you can ignore it。
 
 #### service.yaml
 
-- Each user needs to adjust the variables for certification, as follows：
+Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：server-**{user_name}**
   2. student：**{user_name}**
   3. port：listen 3344
