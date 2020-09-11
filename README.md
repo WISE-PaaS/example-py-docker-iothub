@@ -3,25 +3,36 @@
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
+- [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-hzwise-paas)
 - [Environment](#environment)
-- [Downloading the Project](#Downloading-the-Project)
+- [Downloading the Project](#downloading-the-project)
 - [Application Introduce](#application-introduce)
-    - [index.py](#indexpy)
-    - [publisher.py](#publisherpy)
-    - [SSO (Single Sign On)](#sso-single-sign-on)
+    - [1. index.py](#1-indexpy)
+    - [2. publisher.py](#2-publisherpy)
+    - [3. SSO (Single Sign On)](#3-sso-single-sign-on)
 - [Kubernetes Config](#kubernetes-config)
-    - [deployment.yaml](#deploymentyaml)
-    - [ingress.yaml](#ingressyaml)
-    - [service.yaml](#serviceyaml)
+    - [1. deployment.yaml](#1-deploymentyaml)
+    - [2. ingress.yaml](#2-ingressyaml)
+    - [3. service.yaml](#3-serviceyaml)
 - [Docker](#docker)
-    - [dockerfile](#dockerfile)
+    - [1. dockerfile](#1-dockerfile)
 - [Deployment Application Steps](#deployment-application-steps)
     - [1. build Docker image](#1-build-docker-image)
     - [2. push it to Docker Hub](#2-push-it-to-docker-hub)
     - [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
     - [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success)
     - [5. Run publisher.py](#5-run-publisherpy)
+    _ [1. index.py](#1-indexpy)
+    _ [2. publisher.py](#2-publisherpy) \* [3. SSO (Single Sign On)](#3-sso-single-sign-on)
+  - [Kubernetes Config](#kubernetes-config)
+    _ [1. deployment.yaml](#1-deploymentyaml)
+    _ [2. ingress.yaml](#2-ingressyaml) \* [3. service.yaml](#3-serviceyaml)
+  - [Docker](#docker) \* [1. dockerfile](#1-dockerfile)
+  - [Deployment Application Steps](#deployment-application-steps)
+    _ [1. build Docker image](#1-build-docker-image)
+    _ [2. push it to Docker Hub](#2-push-it-to-docker-hub)
+    _ [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
+    _ [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success) \* [5. Run publisher.py](#5-run-publisherpy)
 
 ## Introduction
 
@@ -52,7 +63,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## Application Introduce
 
-#### index.py
+#### 1. index.py
 
 Simply backend application。
 
@@ -138,7 +149,7 @@ client.connect(broker, mqtt_port, 60)
 client.loop_start()
 ```
 
-#### publisher.py
+#### 2. publisher.py
 
 This file can help us publish message to topic。
 
@@ -149,7 +160,7 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
 
-#### SSO (Single Sign On)
+#### 3. SSO (Single Sign On)
 
 This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
 If you don't want it，you can ignore it。
@@ -159,7 +170,7 @@ If you don't want it，you can ignore it。
 
 ## Kubernetes Config
 
-#### deployment.yaml
+#### 1. deployment.yaml
 
 Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：py-docker-iothub-**{user_name}**
@@ -171,7 +182,7 @@ Each user needs to adjust the variables for certification, as follows：
      **Notice：In Portal-Services secret name**
      ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimn6nv1s3j31jx0u0dof.jpg)
 
-#### ingress.yaml
+#### 2. ingress.yaml
 
 Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：py-docker-iothub-**{user_name}**
@@ -180,7 +191,7 @@ Each user needs to adjust the variables for certification, as follows：
   4. servicePort：need to be same name in cluster-ip.yaml **port**
      ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqrv8uu4j324u0pq0za.jpg)
 
-#### service.yaml
+#### 3. service.yaml
 
 Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：server-**{user_name}**
@@ -191,7 +202,7 @@ Each user needs to adjust the variables for certification, as follows：
 
 ## Docker
 
-#### dockerfile
+#### 1. dockerfile
 
 We first download the python:3.6 and copy this application to `/app`，and install library define in `requirements.txt`
 
