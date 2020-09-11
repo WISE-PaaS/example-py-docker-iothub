@@ -171,6 +171,8 @@ Each user needs to adjust the variables for certification, as follows：
      ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimn6nv1s3j31jx0u0dof.jpg)
 
 #### 2. ingress.yaml
+**Ingress Layout**
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimv9tplukj31jd0u0gpp.jpg)
 
 Each user needs to adjust the variables for certification, as follows：
   1. metadata >> name：py-docker-iothub-**{user_name}**
