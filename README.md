@@ -1,6 +1,30 @@
 # Example-Python-Docker-Iothub
 
-[Toc]
+Table of Contents
+=================
+
+   * [Example-Python-Docker-Iothub](#example-python-docker-iothub)
+      * [Introduction](#introduction)
+      * [Deploy the app to space](#deploy-the-app-to-space)
+      * [Environment Prepare](#environment-prepare)
+        * [environment config](#environment-config)
+        * [git clone](#git-clone)
+      * [Application Introduce](#application-introduce)
+        * [index.py](#indexpy)
+        * [publisher.py](#publisherpy)
+        * [SSO (Single Sign On)](#sso-single-sign-on)
+      * [Kubernetes Config](#kubernetes-config)
+        * [deployment.yaml](#deploymentyaml)
+        * [ingress.yaml](#ingressyaml)
+        * [service.yaml](#serviceyaml)
+      * [Docker](#docker)
+        * [dockerfile](#dockerfile)
+      * [Deployment Application Steps](#deployment-application-steps)
+        * [1. build Docker image](#1-build-docker-image)
+        * [2. push it to Docker Hub](#2-push-it-to-docker-hub)
+        * [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
+        * [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success)
+        * [5. Run publisher.py](#5-run-publisherpy)
 
 ## Introduction
 
@@ -14,7 +38,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## Environment Prepare
 
-#### 1. environment config
+#### environment config
 
 [Python3](https://www.python.org/downloads/) （ need include pip3 ）
 
@@ -26,7 +50,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 [Docker](https://www.docker.com/get-started)
 Use to packaged our application
 
-#### 2. download
+#### git clone
 
     git clone https://github.com/WISE-PaaS/example-py-docker-iothub.git
 
