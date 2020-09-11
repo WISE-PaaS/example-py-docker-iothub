@@ -22,17 +22,6 @@
     - [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
     - [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success)
     - [5. Run publisher.py](#5-run-publisherpy)
-    _ [1. index.py](#1-indexpy)
-    _ [2. publisher.py](#2-publisherpy) \* [3. SSO (Single Sign On)](#3-sso-single-sign-on)
-  - [Kubernetes Config](#kubernetes-config)
-    _ [1. deployment.yaml](#1-deploymentyaml)
-    _ [2. ingress.yaml](#2-ingressyaml) \* [3. service.yaml](#3-serviceyaml)
-  - [Docker](#docker) \* [1. dockerfile](#1-dockerfile)
-  - [Deployment Application Steps](#deployment-application-steps)
-    _ [1. build Docker image](#1-build-docker-image)
-    _ [2. push it to Docker Hub](#2-push-it-to-docker-hub)
-    _ [3. create kubernetes object ( All object are in the k8s folder)](#3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
-    _ [4. Check（Pod status is running for success）](#4-checkpod-status-is-running-for-success) \* [5. Run publisher.py](#5-run-publisherpy)
 
 ## Introduction
 
