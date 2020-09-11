@@ -3,7 +3,7 @@
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Deploy the app to HZ WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
+- [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
 - [Environment Prepare](#environment-prepare)
     - [env config](#env-config)
     - [git clone](#git-clone)
