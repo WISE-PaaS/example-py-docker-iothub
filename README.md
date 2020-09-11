@@ -4,7 +4,7 @@
 
 - [Introduction](#introduction)
 - [Deploy the app to HZ.WISE-PaaS](#deploy-the-app-to-HZ-WISE-PaaS)
-- [Environment Prepare](#environment-prepare)
+- [Environment](#environment)
 - [Application Introduce](#application-introduce)
     - [index.py](#indexpy)
     - [publisher.py](#publisherpy)
@@ -34,7 +34,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
     - Workspace：advtraining
         - Namespace：level1
 
-## Environment Prepare
+## Environment
 
 [Python3](https://www.python.org/downloads/) （ need include pip3 ）
 
