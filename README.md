@@ -28,11 +28,13 @@
 
 This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and we use the Docker package this file。
 
-## Deploy the app to space
+## Deploy the app to HZ.WISE-PaaS
+[HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
 
 - Data Center：HZ
-  - Workspace：advtraining
-    - Namespace：level1
+  - Cluster：eks006
+    - Workspace：advtraining
+        - Namespace：level1
 
 ## Environment Prepare
 
