@@ -19,13 +19,24 @@ def root():
         return render_template('index.html')
 
 
-vcap_services = os.getenv('VCAP_SERVICES')
-vcap_services_js = json.loads(vcap_services)
+ENSAAS_SERVICES = os.getenv('ENSAAS_SERVICES')
+ENSAAS_SERVICES_js = json.loads(ENSAAS_SERVICES)
+#need to be same name in WISE-PaaS
 service_name = 'p-rabbitmq'
-broker = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['host']
-username = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['username'].strip()
-password = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['password'].strip()
-mqtt_port = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['port']
+broker = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['host']
+username = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['username'].strip()
+password = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['password'].strip()
+mqtt_port = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['port']
+
+print(broker)
+print(username)
+print(password)
+print(mqtt_port)
+
+# broker="rabbitmq-001-pub.hz.wise-paas.com.cn"
+# mqtt_port=1883
+# username="d34d32b7-5256-4c48-90b6-1cdc3cf2bd35:d21c17e3-9be4-4029-b567-a4e3da4ba706"
+# password="iRI0z1Fa3Groi1HD21bIzxDpw"
 
 
 def on_connect(client, userdata, flags, rc):
@@ -37,14 +48,13 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic+','+msg.payload.decode())
 
-client = mqtt.Client()
 
-client.username_pw_set(username, password)
-client.on_connect = on_connect
-client.on_message = on_message
+client = mqtt.Client()  
 
-client.connect(broker, mqtt_port, 60)
-
+client.username_pw_set(username, password)  
+client.on_connect = on_connect  
+client.on_message = on_message  
+client.connect(broker, mqtt_port, 60)   
 client.loop_start()
 
 
