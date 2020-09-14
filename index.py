@@ -33,7 +33,7 @@ print(username)
 print(password)
 print(mqtt_port)
 
-# Connection settings
+# mqtt connect
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe("/hello")
