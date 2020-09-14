@@ -2,7 +2,7 @@
 
 - [1. Introduction](#1-introduction)
 - [2. Environment](#2-environment)
-- [3. ownloading the Project](#3-ownloading-the-project)
+- [3. Downloading the Project](#3-Downloading-the-project)
 - [4. Deploy the app to HZ.WISE-PaaS](#4-deploy-the-app-to-hzwise-paas)
 - [5. Application Introduce](#5-application-introduce)
   - [5-1. index.py](#5-1-indexpy)
@@ -36,7 +36,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 [Docker](https://www.docker.com/get-started) ( Use to packaged our application )
 
-## 3. ownloading the Project
+## 3. Downloading the Project
 
     git clone https://github.com/WISE-PaaS/example-py-docker-iothub.git
 
