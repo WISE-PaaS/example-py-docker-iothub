@@ -7,7 +7,6 @@
 - [5. Application Introduce](#5-application-introduce)
   - [5-1. index.py](#5-1-indexpy)
   - [5-2. publisher.py](#5-2-publisherpy)
-  - [5-3. SSO (Single Sign On)](#5-3-sso-single-sign-on)
 - [6. Kubernetes Config](#6-kubernetes-config)
   - [6-1. deployment.yaml](#6-1-deploymentyaml)
   - [6-2. ingress.yaml](#6-2-ingressyaml)
@@ -146,14 +145,6 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 - port :"ENSAAS_SERVICES => p-rabbitmq => mqtt => port"
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
-
-### 5-3. SSO (Single Sign On)
-
-This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
-If you don't want it，you can ignore it。
-
-    #change this **`python-demo-try`** to your **application name**
-    var ssoUrl = myUrl.replace('python-demo-try', 'portal-sso');
 
 ## 6. Kubernetes Config
 
