@@ -3,21 +3,21 @@
 - [3. ownloading the Project](#3-ownloading-the-project)
 - [4. Deploy the app to HZ.WISE-PaaS](#4-deploy-the-app-to-hzwise-paas)
 - [5. Application Introduce](#5-application-introduce)
-    - [5-1. index.py](#5-1-indexpy)
-    - [5-2. publisher.py](#5-2-publisherpy)
-    - [5-3. SSO (Single Sign On)](#5-3-sso-single-sign-on)
+  - [5-1. index.py](#5-1-indexpy)
+  - [5-2. publisher.py](#5-2-publisherpy)
+  - [5-3. SSO (Single Sign On)](#5-3-sso-single-sign-on)
 - [6. Kubernetes Config](#6-kubernetes-config)
-    - [6-1. deployment.yaml](#6-1-deploymentyaml)
-    - [6-2. ingress.yaml](#6-2-ingressyaml)
-    - [6-3. service.yaml](#6-3-serviceyaml)
+  - [6-1. deployment.yaml](#6-1-deploymentyaml)
+  - [6-2. ingress.yaml](#6-2-ingressyaml)
+  - [6-3. service.yaml](#6-3-serviceyaml)
 - [7. Docker](#7-docker)
-    - [7-1. dockerfile](#7-1-dockerfile)
+  - [7-1. dockerfile](#7-1-dockerfile)
 - [8.Deployment Application Steps](#8deployment-application-steps)
-    - [8-1. build Docker image](#8-1-build-docker-image)
-    - [8-2. push it to Docker Hub](#8-2-push-it-to-docker-hub)
-    - [8-3. create kubernetes object ( All object are in the k8s folder)](#8-3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
-    - [8-4. Check（Pod status is running for success）](#8-4-checkpod-status-is-running-for-success)
-    - [8-5. Run publisher.py](#8-5-run-publisherpy)
+  - [8-1. build Docker image](#8-1-build-docker-image)
+  - [8-2. push it to Docker Hub](#8-2-push-it-to-docker-hub)
+  - [8-3. create kubernetes object ( All object are in the k8s folder)](#8-3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
+  - [8-4. Check（Pod status is running for success）](#8-4-checkpod-status-is-running-for-success)
+  - [8-5. Run publisher.py](#8-5-run-publisherpy)
 
 ## 1. Introduction
 
@@ -48,7 +48,7 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## 5. Application Introduce
 
-#### 5-1. index.py
+### 5-1. index.py
 
 Simply backend application。
 
@@ -134,7 +134,7 @@ client.connect(broker, mqtt_port, 60)
 client.loop_start()
 ```
 
-#### 5-2. publisher.py
+### 5-2. publisher.py
 
 This file can help us publish message to topic。
 
@@ -145,7 +145,7 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
 
-#### 5-3. SSO (Single Sign On)
+### 5-3. SSO (Single Sign On)
 
 This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
 If you don't want it，you can ignore it。
@@ -155,7 +155,7 @@ If you don't want it，you can ignore it。
 
 ## 6. Kubernetes Config
 
-#### 6-1. deployment.yaml
+### 6-1. deployment.yaml
 
 Each user needs to adjust the variables for certification, as follows：
 
@@ -164,7 +164,7 @@ Each user needs to adjust the variables for certification, as follows：
 **Notice：In Portal-Services secret name**
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimn6nv1s3j31jx0u0dof.jpg)
 
-#### 6-2. ingress.yaml
+### 6-2. ingress.yaml
 
 **Ingress Layout**
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimveupn90j31bc0fwmz6.jpg)
@@ -177,7 +177,7 @@ Each user needs to adjust the variables for certification, as follows：
 4. servicePort：need to be same name in cluster-ip.yaml **port**
    ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqrv8uu4j324u0pq0za.jpg)
 
-#### 6-3. service.yaml
+### 6-3. service.yaml
 
 Each user needs to adjust the variables for certification, as follows：
 
@@ -189,7 +189,7 @@ Each user needs to adjust the variables for certification, as follows：
 
 ## 7. Docker
 
-#### 7-1. dockerfile
+### 7-1. dockerfile
 
 We first download the python:3.6 and copy this application to `/app`，and install library define in `requirements.txt`
 
@@ -204,13 +204,13 @@ CMD ["python", "-u", "index.py"]
 
 ## 8.Deployment Application Steps
 
-#### 8-1. build Docker image
+### 8-1. build Docker image
 
 Adjust to your docker account
 
     $ docker build -t {docker_account / py-docker-iothub：latest} .
 
-#### 8-2. push it to Docker Hub
+### 8-2. push it to Docker Hub
 
     $ docker push {docker_account / py-docker-iothub：latest}
 
@@ -218,19 +218,19 @@ The above steps are successful, docker hub will have this image [Docker Hub](htt
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnlaywu4j31jz0u07bl.jpg)
 
-#### 8-3. create kubernetes object ( All object are in the k8s folder)
+### 8-3. create kubernetes object ( All object are in the k8s folder)
 
     $ kubectl apply -f k8s/
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnq5u7qaj318g05ygpf.jpg)
 
-#### 8-4. Check（Pod status is running for success）
+### 8-4. Check（Pod status is running for success）
 
     $ kubectl get all --namespace=level1
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnsphz69j313m0cyqbe.jpg)
 
-#### 8-5. Run publisher.py
+### 8-5. Run publisher.py
 
 **Open two terminal first.**
 
