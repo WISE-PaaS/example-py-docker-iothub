@@ -2,9 +2,14 @@ import paho.mqtt.client as mqtt
 import random
 
 # mqtt credentials in RabbitMQ
+
+# ExternalHosts
 broker="rabbitmq-001-pub.hz.wise-paas.com.cn"
+# mqtt_port
 mqtt_port=1883
+# mqtt_username
 username="d34d32b7-5256-4c48-90b6-1cdc3cf2bd35:40741fb9-44e8-48ee-bf73-50cc1c6dcfea"
+# mqtt_password
 password="J9DeTWe30rizaK7lR9Ds"
 
 # create function for callback
