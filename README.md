@@ -141,7 +141,7 @@ This file can help us publish message to topic。
 
 Edit the **publisher.py** `broker、port、username、password` you can find in **ENSAAS_SERVICES**
 
-- bokrer:"ENSAAS_SERVICES => p-rabbitmq => externalHosts"
+- bokrer："ENSAAS_SERVICES => p-rabbitmq => externalHosts"
 - port :"ENSAAS_SERVICES => p-rabbitmq => mqtt => port"
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
@@ -171,8 +171,8 @@ Each user needs to adjust the variables for certification, as follows：
 
 1. metadata >> name：py-docker-iothub-**{user_name}**
 2. host：py-docker-iothub-**{user_name}** . **{namespace_name}** . **{cluster_name}**.en.internal
-3. serviceName：need to be same name in cluster-ip.yaml **metadata name**
-4. servicePort：need to be same name in cluster-ip.yaml **port**
+3. serviceName：need to be same name in cluster-ip.yaml **{metadata name}**
+4. servicePort：need to be same name in cluster-ip.yaml **{port}**
    ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqrv8uu4j324u0pq0za.jpg)
 
 ### 6-3. service.yaml
@@ -182,7 +182,7 @@ Each user needs to adjust the variables for certification, as follows：
 1. metadata >> name：server-**{user_name}**
 2. student：**{user_name}**
 3. port：listen 3344
-4. targetPort：need to be same port in deployment.yaml **containerPort**
+4. targetPort：need to be same port in deployment.yaml **{containerPort}**
    ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimr7hcbojj324u0l6wj8.jpg)
 
 ## 7. Docker
