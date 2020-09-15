@@ -146,6 +146,8 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
 
+![publisher](https://tva1.sinaimg.cn/large/007S8ZIlgy1gir6b1sflbj30q30ijgpr.jpg)
+
 ## 6. Kubernetes Config
 
 ### 6-1. deployment.yaml
