@@ -152,7 +152,12 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 
 Each user needs to adjust the variables for certification, as follows：
 
-6-1. metadata >> name：py-docker-iothub-**{user_name}** 2. student：**{user_name}** 3. image：**{docker_account}** / py-docker-iothub：latest 4. containerPort：listen 3000 5. env >> valueFrom >> secretRef >> name：Fill in the secret name in the corresponding space
+1. metadata >> name：py-docker-iothub-**{user_name}** 
+2. student：**{user_name}** 
+3. image：**{docker_account}** / py-docker-iothub：latest 
+4. containerPort：listen 3000 
+5. env >> valueFrom >> secretRef >> name：Fill in the same secret name in portal-services in your own space
+
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimrc1gddcj31fh0u07fw.jpg)
 **Notice：In Portal-Services secret name**
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimn6nv1s3j31jx0u0dof.jpg)
