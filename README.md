@@ -43,9 +43,9 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 [HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
 
-- Cluster：eks006
-  - Workspace：advtraining
-    - Namespace：level1
+- Cluster：eks004
+  - Workspace：adv-training
+    - Namespace：level2
 
 ## 5. Application Introduce
 
@@ -90,9 +90,9 @@ print(mqtt_port)
 Check mqtt connection follow as step：
 
     # View existing secret_name or create new one in level1
-    $ kubectl get secret --namespace=level1
+    $ kubectl get secret --namespace=level2
 
-![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilmywhphbj326m0a6tiu.jpg)
+![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisg5y2136j31he0as4c4.jpg)
 
     # Watch ENSAAS_SERVICES
     $ kubectl get secret {py-level1-secret} --namespace=level1 -o yaml
@@ -102,11 +102,11 @@ Check mqtt connection follow as step：
     # Decode ENSAAS_SERVICES
     $ kubectl get secret {py-level1-secret} --namespace=level1 -o jsonpath="{.data.ENSAAS_SERVICES}" | base64 --decode; echo
 
-![-ojsonpath](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilmpj2gk8j326c0pau0x.jpg)
+![-ojsonpath](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisge03b13j31hg0as4m7.jpg)
 
 Copy decode data to vscode and Save as **json** file
 
-![-ojsonpath](https://tva1.sinaimg.cn/large/007S8ZIlgy1giln7ute9aj30n50r9n33.jpg)
+![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgw6f5xcj30ko0dyaea.jpg)
 
 **Notice:You can create new secret by yourself**
 
