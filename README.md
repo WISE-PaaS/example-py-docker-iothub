@@ -4,7 +4,7 @@
   - [1. Introduction](#1-introduction)
   - [2. Environment](#2-environment)
   - [3. Downloading the Project](#3-downloading-the-project)
-  - [4. Deploy the app to HZ.WISE-PaaS](#4-deploy-the-app-to-hzwise-paas)
+  - [4. Deploy the app to SA.WISE-PaaS](#4-deploy-the-app-to-sawise-paas)
   - [5. Application Introduce](#5-application-introduce)
     - [5-1. index.py](#5-1-indexpy)
     - [5-2. publisher.py](#5-2-publisherpy)
@@ -40,7 +40,7 @@ This sample code shows how to deploy an application to the EnSaaS 4.0 environmen
 
     git clone https://github.com/WISE-PaaS/example-py-docker-iothub.git
 
-## 4. Deploy the app to HZ.WISE-PaaS
+## 4. Deploy the app to SA.WISE-PaaS
 
 [sa.wise-paas.com](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
 
