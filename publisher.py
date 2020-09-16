@@ -2,27 +2,26 @@ import paho.mqtt.client as mqtt
 import random
 
 # mqtt credentials in RabbitMQ
-
 # ExternalHosts
-broker="rabbitmq-001-pub.hz.wise-paas.com.cn"
+broker="rabbitmq-001-pub.sa.wise-paas.com"
 # mqtt_port
 mqtt_port=1883
 # mqtt_username
-username="d34d32b7-5256-4c48-90b6-1cdc3cf2bd35:40741fb9-44e8-48ee-bf73-50cc1c6dcfea"
+username="ed6e5a2a-5899-11ea-8729-f6bfce9fbbfd:83096744-d45a-4269-8163-feee669bd5d8"
 # mqtt_password
-password="J9DeTWe30rizaK7lR9Ds"
+password="YmQowqVI2KOjguEkXDi0"
 
 # create function for callback
 def on_publish(client,userdata,result):
     print("data published")
 
 # create client object
-client= mqtt.Client()       
+client= mqtt.Client()
 # Set login account password
 client.username_pw_set(username,password)
 # assign function to callback
-client.on_publish = on_publish               
+client.on_publish = on_publish
 # establish connection
-client.connect(broker,mqtt_port)          
+client.connect(broker,mqtt_port)
 # Published topics and content
 client.publish("/hello",random.randint(10,30))
