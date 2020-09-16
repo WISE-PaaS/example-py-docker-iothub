@@ -23,7 +23,7 @@
 
 ## 1. Introduction
 
-This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and we use the Docker package this file。
+This sample code shows how to deploy an application to the EnSaaS 4.0 environment and send messages to WISE-PaaS via Iot Hub (MQTT) by the platform.
 
 ## 2. Environment
 
