@@ -41,5 +41,5 @@ spec:
             - name: ENSAAS_SERVICES
               valueFrom:
                 secretKeyRef:
-                  name: py-level1-secret
+                  name: level2-secret
                   key: ENSAAS_SERVICES
