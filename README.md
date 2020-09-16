@@ -184,7 +184,7 @@ Each user needs to adjust the variables for certification, as follows：
 
 1. metadata >> name：server-**{user_name}**
 2. student：**{user_name}**
-3. port：same **port** in ingress.yaml
+3. port：same **{port}** in ingress.yaml
 4. targetPort：same **{port}** in deployment.yaml **{containerPort}**
    ![service](https://tva1.sinaimg.cn/large/007S8ZIlly1gisiuqi48sj31lc0p644c.jpg)
 
