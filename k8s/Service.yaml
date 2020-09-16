@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: server-sk-chen
+  name: py-docker-iothub-sk-chen
 spec:
   type: ClusterIP
   # Select the pod with "iothub and sk-chen"
   selector:
     component: iothub
     student: sk-chen
-  # Service actual external port
+  # Service external port
   ports:
+    # Receiving port from ingress.yaml
     - port: 3344
-      # Pod actual external port
+      # ContainerPort
       targetPort: 3000
