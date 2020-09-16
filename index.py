@@ -9,24 +9,28 @@ app = Flask(__name__)
 # port from cloud environment variable or localhost:3000
 port = int(os.getenv("PORT", 3000))
 
-
 @app.route('/', methods=['GET'])
 def root():
 
     if(port == 3000):
-        return 'hello world! i am in the local'
+        return 'py-docker-iothub successful'
     elif(port == int(os.getenv("PORT"))):
         return render_template('index.html')
 
-# get data in ENSAAS_SERVICES
+IOTHUB_SERVICE_NAME = 'p-rabbitmq'
+
+# Get the environment variables
 ENSAAS_SERVICES = os.getenv('ENSAAS_SERVICES')
 ENSAAS_SERVICES_js = json.loads(ENSAAS_SERVICES)
-# get iothub(mqtt) connection credentials
-service_name = 'p-rabbitmq'
-broker = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['host']
-username = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['username'].strip()
-password = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['password'].strip()
-mqtt_port = ENSAAS_SERVICES_js[service_name][0]['credentials']['protocols']['mqtt']['port']
+
+# --- MQTT(rabbitmq) ---
+credentials = ENSAAS_SERVICES_js[IOTHUB_SERVICE_NAME][0]['credentials']
+mqtt_credential = credentials['protocols']['mqtt']
+
+broker = mqtt_credential['host']
+username = mqtt_credential['username'].strip()
+password = mqtt_credential['password'].strip()
+mqtt_port = mqtt_credential['port']
 
 print(broker)
 print(username)
@@ -39,17 +43,16 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("/hello")
     print('subscribe on /hello')
 
-
 def on_message(client, userdata, msg):
     print(msg.topic+','+msg.payload.decode())
 
+client = mqtt.Client()
 
-client = mqtt.Client()  
+client.username_pw_set(username, password)
+client.on_connect = on_connect
+client.on_message = on_message
 
-client.username_pw_set(username, password)  
-client.on_connect = on_connect  
-client.on_message = on_message  
-client.connect(broker, mqtt_port, 60)   
+client.connect(broker, mqtt_port, 60)
 client.loop_start()
 
 
