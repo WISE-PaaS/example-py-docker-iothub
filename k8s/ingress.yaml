@@ -8,12 +8,12 @@ metadata:
 spec:
   rules:
     # named domain name
-    - host: py-docker-iothub-sk-chen.level1.eks006.en.internal
+    - host: py-docker-iothub-sk-chen.level2.eks004.en.internal
       http:
         paths:
           - path: /
             backend:
               # Send packets based on service name
-              serviceName: server-sk-chen
+              serviceName: py-docker-iothub-sk-chen
               # Unify a port to Service
               servicePort: 3344
