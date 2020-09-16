@@ -1,24 +1,25 @@
 # Example-py-docker-iothub
 
-- [1. Introduction](#1-introduction)
-- [2. Environment](#2-environment)
-- [3. Downloading the Project](#3-Downloading-the-Project)
-- [4. Deploy the app to HZ.WISE-PaaS](#4-deploy-the-app-to-hzwise-paas)
-- [5. Application Introduce](#5-application-introduce)
-  - [5-1. index.py](#5-1-indexpy)
-  - [5-2. publisher.py](#5-2-publisherpy)
-- [6. Kubernetes Config](#6-kubernetes-config)
-  - [6-1. deployment.yaml](#6-1-deploymentyaml)
-  - [6-2. ingress.yaml](#6-2-ingressyaml)
-  - [6-3. service.yaml](#6-3-serviceyaml)
-- [7. Docker](#7-docker)
-  - [7-1. dockerfile](#7-1-dockerfile)
-- [8.Deployment Application Steps](#8deployment-application-steps)
-  - [8-1. build Docker image](#8-1-build-docker-image)
-  - [8-2. push it to Docker Hub](#8-2-push-it-to-docker-hub)
-  - [8-3. create kubernetes object ( All object are in the k8s folder)](#8-3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
-  - [8-4. Check（Pod status is running for success）](#8-4-checkpod-status-is-running-for-success)
-  - [8-5. Run publisher.py](#8-5-run-publisherpy)
+- [Example-py-docker-iothub](#example-py-docker-iothub)
+  - [1. Introduction](#1-introduction)
+  - [2. Environment](#2-environment)
+  - [3. Downloading the Project](#3-downloading-the-project)
+  - [4. Deploy the app to HZ.WISE-PaaS](#4-deploy-the-app-to-hzwise-paas)
+  - [5. Application Introduce](#5-application-introduce)
+    - [5-1. index.py](#5-1-indexpy)
+    - [5-2. publisher.py](#5-2-publisherpy)
+  - [6. Kubernetes Config](#6-kubernetes-config)
+    - [6-1. deployment.yaml](#6-1-deploymentyaml)
+    - [6-2. ingress.yaml](#6-2-ingressyaml)
+    - [6-3. service.yaml](#6-3-serviceyaml)
+  - [7. Docker](#7-docker)
+    - [7-1. dockerfile](#7-1-dockerfile)
+  - [8.Deployment Application Steps](#8deployment-application-steps)
+    - [8-1. build Docker image](#8-1-build-docker-image)
+    - [8-2. push it to Docker Hub](#8-2-push-it-to-docker-hub)
+    - [8-3. create kubernetes object ( All object are in the k8s folder)](#8-3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
+    - [8-4. Check（Pod status is running for success）](#8-4-checkpod-status-is-running-for-success)
+    - [8-5. Run publisher.py](#8-5-run-publisherpy)
 
 ## 1. Introduction
 
@@ -41,11 +42,11 @@ This is WIES-PaaS Iothub example-code include the sso and rabbitmq service，and
 
 ## 4. Deploy the app to HZ.WISE-PaaS
 
-[HZ.WISE-PaaS](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
+[sa.wise-paas.com](https://portal-mp-ensaas.hz.wise-paas.com.cn/namespace-info/workloads)
 
-- Cluster：eks004
-  - Workspace：adv-training
-    - Namespace：level2
+- **Cluster**：eks004
+  - **Workspace**：adv-training
+    - **Namespace**：level2
 
 ## 5. Application Introduce
 
@@ -64,7 +65,7 @@ port = int(os.getenv("PORT", 3000))
 def root():
 
     if(port == 3000):
-        return 'hello world! i am in the local'
+        return 'py-docker-iothub successful'
     elif(port == int(os.getenv("PORT"))):
         return render_template('index.html')
 ```
@@ -92,21 +93,21 @@ Check mqtt connection follow as step：
     # View existing secret_name or create new one in level1
     $ kubectl get secret --namespace=level2
 
-![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisg5y2136j31he0as4c4.jpg)
+![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgbotnq5j31he0aq16b.jpg)
 
     # Watch ENSAAS_SERVICES
-    $ kubectl get secret {py-level1-secret} --namespace=level1 -o yaml
+    $ kubectl get secret {secret_name} --namespace=level2 -o yaml
 
-![-oyaml](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilmhaf21jj326c0panpd.jpg)
+![-oyaml](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgbzbywvj31hc0ase11.jpg)
 
     # Decode ENSAAS_SERVICES
-    $ kubectl get secret {py-level1-secret} --namespace=level1 -o jsonpath="{.data.ENSAAS_SERVICES}" | base64 --decode; echo
+    $ kubectl get secret {secret_name} --namespace=level2 -o jsonpath="{.data.ENSAAS_SERVICES}" | base64 --decode; echo
 
 ![-ojsonpath](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisge03b13j31hg0as4m7.jpg)
 
 Copy decode data to vscode and Save as **json** file
 
-![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgw6f5xcj30ko0dyaea.jpg)
+![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgz87rmqj30ky0f0te0.jpg)
 
 **Notice:You can create new secret by yourself**
 
@@ -146,7 +147,7 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 - username :"ENSAAS_SERVICES => p-rabbitmq => mqtt => username"
 - password: "ENSAAS_SERVICES => p-rabbitmq => mqtt => password"
 
-![publisher](https://tva1.sinaimg.cn/large/007S8ZIlgy1gir6b1sflbj30q30ijgpr.jpg)
+![publisher](https://tva1.sinaimg.cn/large/007S8ZIlgy1gish55bh5nj318v0u0qg3.jpg)
 
 ## 6. Kubernetes Config
 
@@ -154,28 +155,28 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 
 Each user needs to adjust the variables for certification, as follows：
 
-1. metadata >> name：py-docker-iothub-**{user_name}** 
-2. student：**{user_name}** 
-3. image：**{docker_account}** / py-docker-iothub：latest 
-4. containerPort：listen 3000 
+1. metadata >> name：py-docker-iothub-**{user_name}**
+2. student：**{user_name}**
+3. image：**{docker_account}** / py-docker-iothub：latest
+4. containerPort：listen 3000
 5. env >> valueFrom >> secretRef >> name：Fill in the same secret name in portal-services in your own space
 
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimrc1gddcj31fh0u07fw.jpg)
+![deployment](https://tva1.sinaimg.cn/large/007S8ZIlgy1gishcm30kxj30li0f0n15.jpg)
 **Notice：In Portal-Services secret name**
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimn6nv1s3j31jx0u0dof.jpg)
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gishp9o8q5j30qo09ignf.jpg)
 
 ### 6-2. ingress.yaml
 
 **Ingress Layout**
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimveupn90j31bc0fwmz6.jpg)
+![ingress Layout](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimveupn90j31bc0fwmz6.jpg)
 
 Each user needs to adjust the variables for certification, as follows：
 
 1. metadata >> name：py-docker-iothub-**{user_name}**
 2. host：py-docker-iothub-**{user_name}** . **{namespace_name}** . **{cluster_name}**.en.internal
-3. serviceName：need to be same name in cluster-ip.yaml **{metadata name}**
-4. servicePort：need to be same name in cluster-ip.yaml **{port}**
-   ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqrv8uu4j324u0pq0za.jpg)
+3. serviceName：need to be same name in Service.yaml **{metadata name}**
+4. servicePort：same **port** in Service.yaml
+   ![ingress](https://tva1.sinaimg.cn/large/007S8ZIlly1gisijjbk4wj31lo0tcjyt.jpg)
 
 ### 6-3. service.yaml
 
@@ -183,9 +184,9 @@ Each user needs to adjust the variables for certification, as follows：
 
 1. metadata >> name：server-**{user_name}**
 2. student：**{user_name}**
-3. port：listen 3344
-4. targetPort：need to be same port in deployment.yaml **{containerPort}**
-   ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimr7hcbojj324u0l6wj8.jpg)
+3. port：same **port** in ingress.yaml
+4. targetPort：same **{port}** in deployment.yaml **{containerPort}**
+   ![service](https://tva1.sinaimg.cn/large/007S8ZIlly1gisiuqi48sj31lc0p644c.jpg)
 
 ## 7. Docker
 
@@ -222,24 +223,25 @@ The above steps are successful, docker hub will have this image [Docker Hub](htt
 
     $ kubectl apply -f k8s/
 
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnq5u7qaj318g05ygpf.jpg)
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjkzn4kuj31je05ydkl.jpg)
 
 ### 8-4. Check（Pod status is running for success）
 
-    $ kubectl get all --namespace=level1
+    # grep can quickly find key words
+    $ kubectl get all --namespace=level2 | grep py
 
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnsphz69j313m0cyqbe.jpg)
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjlrdqb1j31la06wdlv.jpg)
 
 ### 8-5. Run publisher.py
 
 **Open two terminal first.**
 
-    # 1. Send message to application in WISE-PaaS
-    python publisher.py
-
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnwgivrrj318803amys.jpg)
-
-    # 2. Listen the console
+    # 1. Listen the console
     kubectl logs -f pod/{pod_name}
 
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnv93ttpj311c0fcqbd.jpg)
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjrxecukj31js0ha15s.jpg)
+
+    # 2. Send message to application in WISE-PaaS
+    python publisher.py
+
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjseghnwj31jq03oacg.jpg)
