@@ -94,7 +94,7 @@ print(mqtt_port)
 
 ![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1giydanyb9pj31kt0u0n69.jpg)
 
-Check MQTT connect information
+Check MQTT connection in secret
 
     # View existing secret_name or create new one in level2
     $ kubectl get secret --namespace=level2
