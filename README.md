@@ -90,9 +90,13 @@ print(password)
 print(mqtt_port)
 ```
 
-Check mqtt connection follow as step：
+**Notice**：the **IOTHUB_SERVICE_NAME** need to be same name in Portal-service **Instance Name**。
 
-    # View existing secret_name or create new one in level1
+![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1giydanyb9pj31kt0u0n69.jpg)
+
+Check MQTT connect information
+
+    # View existing secret_name or create new one in level2
     $ kubectl get secret --namespace=level2
 
 ![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgbotnq5j31he0aq16b.jpg)
@@ -110,10 +114,6 @@ Check mqtt connection follow as step：
 Copy decode data to vscode and Save as **json** file
 
 ![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1gisgz87rmqj30ky0f0te0.jpg)
-
-**Notice:You can create new secret by yourself**
-
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilndil2pnj31jz0u0478.jpg)
 
 This code can connect to IohHub，if it connect successful `on_connect` will print successful result and subscribe topic `/hello`，you can define topic by yourself，and when we receive message `on_message` will print it。
 
@@ -247,3 +247,4 @@ The above steps are successful, docker hub will have this image [Docker Hub](htt
     python publisher.py
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjseghnwj31jq03oacg.jpg)
+
