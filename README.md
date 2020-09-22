@@ -1,4 +1,4 @@
-# Example-py-docker-iothub
+# Example-Py-Docker-Iothub
 
 - [1. Introduction](#1-introduction)
 - [2. Before You Start](#2-before-you-start)
