@@ -227,15 +227,15 @@ The above steps are successful, docker hub will have this image [Docker Hub](htt
 ### 8-4. Check（Pod status is running for success）
 
     # grep can quickly find key words
-    $ kubectl get all --namespace=level2 | grep py
+    $ kubectl get all --namespace=level2 | grep iothub-sk-chen
 
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjlrdqb1j31la06wdlv.jpg)
+![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gizjd8zvdbj3186062n1o.jpg)
 
 ### 8-5. Run publisher.py
 
 **Open two terminal first.**
 
-    # 1. Listen the console
+    # 1. View the log of the container
     kubectl logs -f pod/{pod_name}
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjrxecukj31js0ha15s.jpg)
