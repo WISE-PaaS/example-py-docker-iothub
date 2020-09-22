@@ -90,10 +90,6 @@ print(password)
 print(mqtt_port)
 ```
 
-**Notice**：the **IOTHUB_SERVICE_NAME** need to be same name in Portal-service **Instance Name**。
-
-![getSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1giydanyb9pj31kt0u0n69.jpg)
-
 Retrieve the secret, which iothub the secret contains
 
     # List all secrets in the namespace
@@ -111,6 +107,8 @@ Copy the decoded content and paste it into the editor, such as Visual Studio Cod
 ![-ojsonpath](https://tva1.sinaimg.cn/large/007S8ZIlgy1giz88jndhjj30up04gtd9.jpg)
 
 Copy the decoded content to vscode and Save as **json** format
+
+**Notice**：the `IOTHUB_SERVICE_NAME` need to be same name in secret instance name。**PS（ Not the instance name in portal-service ）**
 
 ![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1giz80nrjndj317k0rk10h.jpg)
 
@@ -246,3 +244,4 @@ The above steps are successful, docker hub will have this image [Docker Hub](htt
     python publisher.py
 
 ![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlly1gisjseghnwj31jq03oacg.jpg)
+
