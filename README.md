@@ -160,7 +160,7 @@ Each user needs to adjust the variables for certification, as follows：
 2. student：**{user_name}**
 3. image：**{docker_account}** / py-docker-iothub：latest
 4. containerPort：listen 3000
-5. env >> valueFrom >> secretRef >> name：need same name in Portal-service **secret name**
+5. env >> valueFrom >> secretRef >> name：need same name in Portal-service **{secret name}**
 
 ![deployment](https://tva1.sinaimg.cn/large/007S8ZIlgy1gishcm30kxj30li0f0n15.jpg)
 **Notice：In Portal-Services secret name**
