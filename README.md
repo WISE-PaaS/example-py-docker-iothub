@@ -73,7 +73,7 @@ def root():
         return render_template('index.html')
 ```
 
-This is the mqtt connect config code，`ENSAAS_SERVICES` can get the application environment in WISE-PaaS。
+This is the MQTT connect config code，`ENSAAS_SERVICES` can get the application environment in WISE-PaaS。
 
 ```py
 ENSAAS_SERVICES = os.getenv('ENSAAS_SERVICES')
