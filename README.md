@@ -109,7 +109,9 @@ Copy the decoded content and paste it into the editor, such as Visual Studio Cod
 
 Copy the decoded content to vscode and Save as **json** format
 
-**Notice**：the `IOTHUB_SERVICE_NAME` need to be same name in secret instance name。**PS（ Not the instance name in portal-service ）**
+**Notice**：the `IOTHUB_SERVICE_NAME` need to be same name in secret instance name。
+
+**PS（ Not the instance name in portal-service ）**
 
 ![copyDataVS](https://tva1.sinaimg.cn/large/007S8ZIlgy1giz80nrjndj317k0rk10h.jpg)
 
@@ -159,7 +161,7 @@ Each user needs to adjust the variables for certification, as follows：
 2. student：**{user_name}**
 3. image：**{docker_account}** / py-docker-iothub：latest
 4. containerPort：listen 3000
-5. env >> valueFrom >> secretRef >> name：Fill in the same secret name in portal-services in your own space
+5. env >> valueFrom >> secretRef >> name：need same name in Portal-service **secret name**
 
 ![deployment](https://tva1.sinaimg.cn/large/007S8ZIlgy1gishcm30kxj30li0f0n15.jpg)
 **Notice：In Portal-Services secret name**
@@ -214,10 +216,6 @@ Adjust to your docker account
 ### 8-2. push it to Docker Hub
 
     $ docker push {docker_account / py-docker-iothub：latest}
-
-The above steps are successful, docker hub will have this image [Docker Hub](https://hub.docker.com/)
-
-![createSecret](https://tva1.sinaimg.cn/large/007S8ZIlgy1gilnlaywu4j31jz0u07bl.jpg)
 
 ### 8-3. create kubernetes object ( All object are in the k8s folder)
 
