@@ -13,7 +13,7 @@
   - [6-3. service.yaml](#6-3-serviceyaml)
 - [7. Docker](#7-docker)
   - [7-1. dockerfile](#7-1-dockerfile)
-- [8.Deployment Application Steps](#8deployment-application-steps)
+- [8. Deployment Application Steps](#8-deployment-application-steps)
   - [8-1. build Docker image](#8-1-build-docker-image)
   - [8-2. push it to Docker Hub](#8-2-push-it-to-docker-hub)
   - [8-3. create kubernetes object ( All object are in the k8s folder)](#8-3-create-kubernetes-object--all-object-are-in-the-k8s-folder)
@@ -205,7 +205,7 @@ EXPOSE 3000
 CMD ["python", "-u", "index.py"]
 ```
 
-## 8.Deployment Application Steps
+## 8. Deployment Application Steps
 
 ### 8-1. build Docker image
 
